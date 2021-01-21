@@ -8,7 +8,7 @@
     "require": {
         "php": ">=7.0.0",
         "fideloper/proxy": "~3.3",
-        "furqansiddiqui/erc20-php": "dev-master",
+        "furqansiddiqui/erc20-php": "0.1.x-dev",
         "guzzlehttp/guzzle": "^7.0@dev",
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0"
