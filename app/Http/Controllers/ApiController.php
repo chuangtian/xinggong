@@ -522,10 +522,11 @@ class ApiController extends Controller
 //        }
         $gethrpc=new Eth(config('app.eth'));//测试网络
         $result=$gethrpc->personal_newAccount('vd!LiedNJ9DkGRpA');
-        dd($result);
-        //$info=DB::table($this->table)->insert($data);
+        $data["code"]="200";
+        $data["address"]=$result['result'];
+        $info=DB::table($this->table)->insert(array("address"=>$result['result'],"platformName"=>"xg"));
         //$result = $gethrpc->personal_unlockAccount(config("app.getFeeAddress"),config("app.getFeeAddressPassword"));//解锁
-        return $result;
+        return $data;
     }
     public function  nonce($from){
         $a=Redis::get($from);
