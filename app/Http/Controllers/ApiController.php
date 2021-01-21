@@ -522,6 +522,7 @@ class ApiController extends Controller
 //        }
         $gethrpc=new Eth(config('app.eth'));//测试网络
         $result=$gethrpc->personal_newAccount('vd!LiedNJ9DkGRpA');
+        dd($result);
         //$info=DB::table($this->table)->insert($data);
         //$result = $gethrpc->personal_unlockAccount(config("app.getFeeAddress"),config("app.getFeeAddressPassword"));//解锁
         return $result;
