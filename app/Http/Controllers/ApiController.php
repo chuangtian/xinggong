@@ -513,19 +513,18 @@ class ApiController extends Controller
 
     public function address(Request $request){
         //判断key
-        $key=$request->input('key');
-        $hash = md5('NIuse1XCyOvX$5Y'.'ercpass');
-        if($key!=$hash){
-            $data['code']=402;
-            $data['message']='Key error';
-            return $data;
-        }
-        $address = DB::table('accounts')->select('address')->where('platformName','fmc')->get();
-        $adress_all=array();
-        foreach ($address as $value){
-            $adress_all[]=$value->address;
-        }
-        return $adress_all;
+//        $key=$request->input('key');
+//        $hash = md5('i@z%cBVz5^fDN9Q0'.'xinggong');
+//        if($key!=$hash){
+//            $data['code']=402;
+//            $data['message']='Key error';
+//            return $data;
+//        }
+        $gethrpc=new Eth(config('app.eth'));//测试网络
+        $result=$gethrpc->personal_newAccount('vd!LiedNJ9DkGRpA');
+        //$info=DB::table($this->table)->insert($data);
+        //$result = $gethrpc->personal_unlockAccount(config("app.getFeeAddress"),config("app.getFeeAddressPassword"));//解锁
+        return $result;
     }
     public function  nonce($from){
         $a=Redis::get($from);
