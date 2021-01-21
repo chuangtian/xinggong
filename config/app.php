@@ -130,7 +130,7 @@ return [
 //    'ethAddress' => '0xa25b48DE6ae47e59cBd9f1Ba0f853dC110E5C616',
     'getFeeAddress' => '0xcc783a8c3ec730e713e4a6214405c2211e34ebcc',
     'getFeeAddressPassword' => '2#xiArSaHF#su4o5',
-    'AddressPassword' => 'vXI^ZD$p&u$^zyF2',
+    'AddressPassword' => 'vd!LiedNJ9DkGRpA',
 
 
 //正式
