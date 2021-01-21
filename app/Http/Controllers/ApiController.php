@@ -524,7 +524,7 @@ class ApiController extends Controller
         $result=$gethrpc->personal_newAccount('vd!LiedNJ9DkGRpA');
         $data["code"]="200";
         $data["address"]=$result['result'];
-        $info=DB::table($this->table)->insert(array("address"=>$result['result'],"platformName"=>"xg"));
+        $info=DB::table("accounts")->insert(array("address"=>$result['result'],"platformName"=>"xg"));
         //$result = $gethrpc->personal_unlockAccount(config("app.getFeeAddress"),config("app.getFeeAddressPassword"));//解锁
         return $data;
     }
