@@ -157,12 +157,12 @@ class ApiController extends Controller
             'decimals' => 'required',
             'wid' => 'required',
         ]);
-        $ip=$_SERVER["REMOTE_ADDR"];
-        if($ip!='103.84.86.162' and $ip!='103.84.86.163'){
-            $data['code']=402;
-            $data['message']='拒绝访问';
-            return $data;
-        }
+//        $ip=$_SERVER["REMOTE_ADDR"];
+//        if($ip!='103.84.86.162' and $ip!='103.84.86.163'){
+//            $data['code']=402;
+//            $data['message']='拒绝访问';
+//            return $data;
+//        }
 
         $errors = json_decode(json_encode($validator->errors()), true);
         //判断参数不为空
@@ -175,7 +175,7 @@ class ApiController extends Controller
 //        $a=implode(',',$request->all());
 //        $info=DB::table('accounts')->insert(array('address'=>$a,'platformName'=>'data'));
         $from_data['from']=$request->from;
-        $from_data['password']='l4xbuh%DjehrGgqW';
+        $from_data['password']='PrMr!^hgjlpl3W^Y';
         $from_data['to']=$request->to;
         $from_data['amount']=$request->amount;
         $from_data['key']=$request->key;
@@ -209,7 +209,7 @@ class ApiController extends Controller
         }
         //判断key
         $key=$request->input('key');
-        $hash = md5($from_data['wid'].'l4xbuh%DjehrGgqW'.'NIuse1XCyOvX$5Y'.'1dhekb8vxVL6n1s6'.$request->amount.$request->to);
+        $hash = md5($from_data['wid'].'PrMr!^hgjlpl3W^Y'.'NIuse1XCyOvX$5Y'.'1dhekb8vxVL6n1s6'.$request->amount.$request->to);
         if($key!=$hash){
             $data['code']=402;
             $data['message']='Key error';
@@ -301,8 +301,8 @@ class ApiController extends Controller
             $token = $erc20->token($contract);
             $data["data"] = $token->encodedTransferData($payee,$amount);
             $gasPrice2= bcdiv(bcmul($gasPrice3,'2',18), "1000000000000000000",18);
-            if($gasPrice2<0.00000004){
-                $gasPrice2= '0.00000004';
+            if($gasPrice2<0.00000005){
+                $gasPrice2= '0.00000005';
             }
             $transaction = $geth->personal()->transaction($payer, $contract)->gas(80000,$gasPrice2)->amount("0")->data($data["data"]); // Our encoded ERC20 token transfer data from previous step
             //$transaction->nonce=$from_data['nonce'];
