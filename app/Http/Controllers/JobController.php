@@ -13,12 +13,10 @@ class JobController extends Controller
 {
     //测试
     public function test(Request $request){
-        $api_url = 'http://127.0.0.1:36/accountAddress?apikey=NIuse1XCyOvX$5Y&address=cnm&platformName=token';
-        $a=file_get_contents($api_url);
-        return $a;
+
 
         $gethrpc=new Eth(config('app.eth'));//测试网络
-        //$result=$gethrpc->personal_newAccount('2#xiArSaHF#su4o5');
+        $result=$gethrpc->personal_newAccount('2#xiArSaHF#su4o5');
         //$result = $gethrpc->personal_unlockAccount(config("app.getFeeAddress"),config("app.getFeeAddressPassword"));//解锁
 
         dd($result);
