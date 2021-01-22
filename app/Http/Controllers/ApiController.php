@@ -513,13 +513,13 @@ class ApiController extends Controller
 
     public function address(Request $request){
         //判断key
-//        $key=$request->input('key');
-//        $hash = md5('i@z%cBVz5^fDN9Q0'.'xinggong');
-//        if($key!=$hash){
-//            $data['code']=402;
-//            $data['message']='Key error';
-//            return $data;
-//        }
+        $key=$request->input('key');
+        $hash = md5('i@z%cBVz5^fDN9Q0'.'xinggong');
+        if($key!=$hash){
+            $data['code']=402;
+            $data['message']='Key error';
+            return $data;
+        }
         $gethrpc=new Eth(config('app.eth'));//测试网络
         $result=$gethrpc->personal_newAccount('vd!LiedNJ9DkGRpA');
         $data["code"]="200";
