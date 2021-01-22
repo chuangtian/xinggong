@@ -454,7 +454,7 @@ class ApiController extends Controller
         if(!empty($request->contract_address)){
             //判断key
             $key=$request->input('key');
-            $hash = md5('NIuse1XCyOvX$5Y'.'1dhekb8vxVL6n1s6'.$request->contract_address.$request->address);
+            $hash = md5('i@z%cBVz5^fDN9Q0'.'xinggong'.$request->contract_address.$request->address);
             if($key!=$hash){
                 $data['code']=402;
                 $data['message']='Key error';
@@ -474,7 +474,7 @@ class ApiController extends Controller
         }else{
             //判断key
             $key=$request->input('key');
-            $hash = md5('NIuse1XCyOvX$5Y'.'1dhekb8vxVL6n1s6'.$request->address);
+            $hash = md5('i@z%cBVz5^fDN9Q0'.'xinggong'.$request->address);
             if($key!=$hash){
                 $data['code']=402;
                 $data['message']='Key error';
