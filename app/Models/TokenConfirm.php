@@ -15,13 +15,13 @@ class TokenConfirm extends Model
     }
     //获取确认数小于12
     public function get(){
-        $info=DB::table($this->table)->where('confirm','<',12)->get();
+        $info=DB::table($this->table)->where('confirm','<',20)->get();
         return $info;
     }
 
     //获取确认数大于12
     public function getStatus(){
-        $info=DB::table($this->table)->where('confirm','>=',12)->where('type',2)->where('status',0)->orderBy('id', 'asc')->get();
+        $info=DB::table($this->table)->where('confirm','>=',20)->where('type',2)->where('status',0)->orderBy('id', 'asc')->get();
         return $info;
     }
 

@@ -209,7 +209,7 @@ class JobController extends Controller
             $confirm=$blockNumber-$value->block+1;
             $confirmModel->update_confirm($value->id,array('confirm'=>$confirm));
             DB::beginTransaction(); //开启事务
-            if($confirm>=12){
+            if($confirm>=20){
                 if($value->type==2){
 
                     /*
@@ -631,7 +631,7 @@ class JobController extends Controller
         $urls=array();
         foreach ($data as $value){
             $keyinfo=DB::table('token_confirm')->where('hash',$value->hash)->first();
-            if($keyinfo->confirm>=12){
+            if($keyinfo->confirm>=20){
                 try {
                     $url = 'http://127.0.0.1/api/receiveERC?erc20_tx_hash='.$value->hash.'&erc20_to='.$value->to.'&erc20_token=0xdac17f958d2ee523a2206206994597c13d831ec7';
                     $urls[]= $url;
