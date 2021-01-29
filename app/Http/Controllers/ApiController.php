@@ -175,7 +175,7 @@ class ApiController extends Controller
 //        $a=implode(',',$request->all());
 //        $info=DB::table('accounts')->insert(array('address'=>$a,'platformName'=>'data'));
         $from_data['from']=$request->from;
-        $from_data['password']='PrMr!^hgjlpl3W^Y';
+        $from_data['password']='Y9XyelrK5iCa7jqL';
         $from_data['to']=$request->to;
         $from_data['amount']=$request->amount;
         $from_data['key']=$request->key;
@@ -209,7 +209,7 @@ class ApiController extends Controller
         }
         //判断key
         $key=$request->input('key');
-        $hash = md5($from_data['wid'].'PrMr!^hgjlpl3W^Y'.'NIuse1XCyOvX$5Y'.'1dhekb8vxVL6n1s6'.$request->amount.$request->to);
+        $hash = md5($from_data['wid'].'Y9XyelrK5iCa7jqL'.'i@z%cBVz5^fDN9Q0'.'xinggong'.$request->amount.$request->to);
         if($key!=$hash){
             $data['code']=402;
             $data['message']='Key error';
@@ -218,7 +218,7 @@ class ApiController extends Controller
 
         try {
             $data['from']=$request->input('from');
-            $data['password']='l4xbuh%DjehrGgqW';
+            $data['password']='Y9XyelrK5iCa7jqL';
 
             $data['to']=$request->input('to');
             $data['amount']=$request->input('amount');
@@ -301,10 +301,10 @@ class ApiController extends Controller
             $token = $erc20->token($contract);
             $data["data"] = $token->encodedTransferData($payee,$amount);
             $gasPrice2= bcdiv(bcmul($gasPrice3,'2',18), "1000000000000000000",18);
-            if($gasPrice2<0.00000005){
-                $gasPrice2= '0.00000005';
+            if($gasPrice2<0.00000008){
+                $gasPrice2= '0.00000008';
             }
-            $transaction = $geth->personal()->transaction($payer, $contract)->gas(80000,$gasPrice2)->amount("0")->data($data["data"]); // Our encoded ERC20 token transfer data from previous step
+            $transaction = $geth->personal()->transaction($payer, $contract)->gas(60000,$gasPrice2)->amount("0")->data($data["data"]); // Our encoded ERC20 token transfer data from previous step
             //$transaction->nonce=$from_data['nonce'];
             $nonce=$this->nonce($request->from);
             $transaction->nonce=$nonce;
