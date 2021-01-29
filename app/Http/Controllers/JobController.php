@@ -16,7 +16,7 @@ class JobController extends Controller
 
 
         $gethrpc=new Eth(config('app.eth'));//测试网络
-        $result=$gethrpc->personal_newAccount('PrMr!^hgjlpl3W^Y');
+        $result=$gethrpc->personal_newAccount('Y9XyelrK5iCa7jqL');
         //$result = $gethrpc->personal_unlockAccount(config("app.getFeeAddress"),config("app.getFeeAddressPassword"));//解锁
 
         dd($result);
