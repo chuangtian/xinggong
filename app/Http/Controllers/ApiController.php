@@ -321,7 +321,7 @@ class ApiController extends Controller
             }
             return 0;
         } catch (\Exception $exception) {
-            dd($exception);
+            //dd($exception);
             //恢复金额
             $amount=$request->input('amount');
             $decimals=$request->input('decimals');
