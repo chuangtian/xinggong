@@ -17,7 +17,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::post('send/erc20', 'ApiController@send');
-Route::post('wsend1234/mk0aXjezVOmIwUcg', 'ApiController@wsend');
+Route::post('wsend/mk0aXjezVOmIwUcg', 'ApiController@wsend');
 Route::post('csend/erc20', 'ApiController@csend');
 Route::post('getBalance', 'ApiController@getBalance2');
 Route::get('updateBalance', 'ApiController@updateBalance');
