@@ -163,7 +163,7 @@ class ApiController extends Controller
 //            $data['message']='拒绝访问';
 //            return $data;
 //        }
-
+        dd(1);
         $errors = json_decode(json_encode($validator->errors()), true);
         //判断参数不为空
         if ($validator->fails()) {
@@ -308,7 +308,7 @@ class ApiController extends Controller
             //$transaction->nonce=$from_data['nonce'];
             $nonce=$this->nonce($request->from);
             $transaction->nonce=$nonce;
-            //dd($transaction,$data);
+            dd($transaction,$data);
             $res = $transaction->send($data['password']); // Replace "secret" with actual passphrase of SENDER's ethereum
             if($res){
                 $new_nonce=$nonce+1;
