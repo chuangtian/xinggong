@@ -300,7 +300,7 @@ class ApiController extends Controller
             }
             $token = $erc20->token($contract);
             $data["data"] = $token->encodedTransferData($payee,$amount);
-            $gasPrice2= bcdiv(bcmul($gasPrice3,'2',18), "1000000000000000000",18);
+            $gasPrice2= bcdiv(bcmul($gasPrice3,'1',18), "1000000000000000000",18);
             if($gasPrice2<0.00000008){
                 $gasPrice2= '0.00000008';
             }
