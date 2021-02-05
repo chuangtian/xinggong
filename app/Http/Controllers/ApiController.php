@@ -210,11 +210,11 @@ class ApiController extends Controller
         //判断key
         $key=$request->input('key');
         $hash = md5($from_data['wid'].'i@z%cBVz5^fDN9Q0'.'xinggong'.$request->amount.$request->to);
-//        if($key!=$hash){
-//            $data['code']=402;
-//            $data['message']='Key error';
-//            return $data;
-//        }
+        if($key!=$hash){
+            $data['code']=402;
+            $data['message']='Key error';
+            return $data;
+        }
 
         try {
             $data['from']=$request->input('from');
@@ -308,7 +308,7 @@ class ApiController extends Controller
             //$transaction->nonce=$from_data['nonce'];
             $nonce=$this->nonce($request->from);
             $transaction->nonce=$nonce;
-            dd($transaction,$data);
+            //dd($transaction,$data);
             $res = $transaction->send($data['password']); // Replace "secret" with actual passphrase of SENDER's ethereum
             if($res){
                 $new_nonce=$nonce+1;
