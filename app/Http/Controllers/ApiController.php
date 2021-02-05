@@ -163,7 +163,7 @@ class ApiController extends Controller
 //            $data['message']='拒绝访问';
 //            return $data;
 //        }
-        dd(1);
+        //dd(1);
         $errors = json_decode(json_encode($validator->errors()), true);
         //判断参数不为空
         if ($validator->fails()) {
