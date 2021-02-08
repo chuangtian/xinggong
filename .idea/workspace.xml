@@ -41,13 +41,13 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="php" value="199" />
+          <entry key="php" value="210" />
           <entry key="py" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PHP" value="199" />
+          <entry key="PHP" value="210" />
           <entry key="PLAIN_TEXT" value="1" />
         </counts>
       </usages-collector>
@@ -58,8 +58,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/app.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="130" column="66" selection-start-line="130" selection-start-column="24" selection-end-line="130" selection-end-column="66" />
+            <state>
+              <caret line="109" lean-forward="true" selection-start-line="109" selection-end-line="109" />
             </state>
           </provider>
         </entry>
@@ -85,8 +85,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/JobController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="114" selection-start-line="20" selection-start-column="114" selection-end-line="20" selection-end-column="114" />
+            <state relative-caret-position="405">
+              <caret line="366" column="95" selection-start-line="366" selection-start-column="95" selection-end-line="366" selection-end-column="95" />
               <folding>
                 <element signature="e#40#68#0#PHP" expanded="true" />
               </folding>
@@ -108,6 +108,8 @@
       <find>PrMr!^hgjlpl3W^Y</find>
       <find>201</find>
       <find>$gasPrice3</find>
+      <find>9000000000000000</find>
+      <find>jarcm</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -208,12 +210,12 @@
       <workItem from="1611715344395" duration="3997000" />
       <workItem from="1611744906573" duration="8277000" />
       <workItem from="1612521015140" duration="159000" />
-      <workItem from="1612523033741" duration="3336000" />
+      <workItem from="1612523033741" duration="4100000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22369000" />
+    <option name="totallyTimeSpent" value="23133000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="40" y="61" width="1400" height="805" extended-state="0" />
@@ -304,15 +306,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/app.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="130" column="66" selection-start-line="130" selection-start-column="24" selection-end-line="130" selection-end-column="66" />
+        <state>
+          <caret line="109" lean-forward="true" selection-start-line="109" selection-end-line="109" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/JobController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="114" selection-start-line="20" selection-start-column="114" selection-end-line="20" selection-end-column="114" />
+        <state relative-caret-position="405">
+          <caret line="366" column="95" selection-start-line="366" selection-start-column="95" selection-end-line="366" selection-end-column="95" />
           <folding>
             <element signature="e#40#68#0#PHP" expanded="true" />
           </folding>

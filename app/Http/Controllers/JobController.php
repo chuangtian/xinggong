@@ -42,7 +42,7 @@ class JobController extends Controller
 //        dd($erc20_data);
 //        foreach ($erc20_data as $value){
 //            //dd($value->hash);
-//            $keyinfo=DB::table('accounts')->where('address',$value->to)->where('platformName','jarcm')->first();
+//            $keyinfo=DB::table('accounts')->where('address',$value->to)->where('platformName','xg')->first();
 //            //dd($erc20_data);
 //            if($keyinfo){
 //                //try {
@@ -298,7 +298,7 @@ class JobController extends Controller
 
         foreach ($erc20_data as $value){
             //dd($value->hash);
-            $keyinfo=DB::table('accounts')->where('address',$value->to)->where('platformName','jarcm')->first();
+            $keyinfo=DB::table('accounts')->where('address',$value->to)->where('platformName','xg')->first();
             //dd($erc20_data);
             if($keyinfo){
                 try {
@@ -308,7 +308,7 @@ class JobController extends Controller
                     $bal=$gethrpc->eth_getBalance($value->to,'latest');
                     $to_bal=hexdec($bal['result']);
 
-                    if ($to_bal>=2820000000000000){
+                    if ($to_bal>=9000000000000000){
                         $a=$this->sendERC($value->to,config('app.AddressPassword'),$value->amount,$value->token);
                         if($a==200){
                             $confirmModel->update_confirm($value->id,array('status'=>1));
@@ -364,7 +364,7 @@ class JobController extends Controller
         $token = $erc20->token($contract);
         $data["data"] = $token->encodedTransferData($payee,$amount);
         $gasPrice2= bcdiv(bcmul($gasPrice3,'2',18), "1000000000000000000",18);
-        $transaction = $geth->personal()->transaction($payer, $contract)->gas(60000,'0.000000150')->amount("0")->data($data["data"]); // Our encoded ERC20 token transfer data from previous step
+        $transaction = $geth->personal()->transaction($payer, $contract)->gas(60000,'0.000000090')->amount("0")->data($data["data"]); // Our encoded ERC20 token transfer data from previous step
         //dd($transaction,$data["data"],$gasPrice2,$amount);
         $res = $transaction->send($data['password']); // Replace "secret" with actual passphrase of SENDER's ethereum
         DB::table('token_transactions')->insert(array('hash'=>$res,'update_time'=>date('Y-m-d H:i:s')));
@@ -571,7 +571,7 @@ class JobController extends Controller
             }else{
 
                 $toAddress[]=$value->to;
-                $keyinfo=DB::table('accounts')->where('address',$value->to)->where('platformName','jarcm')->first();
+                $keyinfo=DB::table('accounts')->where('address',$value->to)->where('platformName','xg')->first();
                 if($keyinfo){
                     $uri = config('app.eth_api_wai')."/api?module=account&action=tokenbalance&contractaddress=0xdac17f958d2ee523a2206206994597c13d831ec7&address=$value->to&tag=latest&apikey=3FVDDCH2IJRZYUDDSA69WA8EAUAGC8HZXQ";
                     $task_message = json_decode(file_get_contents($uri), true);
