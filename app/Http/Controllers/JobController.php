@@ -15,12 +15,12 @@ class JobController extends Controller
     public function test(Request $request){
 
 
-        $cx=$this->sendERC2("0x88292a9700c81351c05ec926ffe38ecf4205b52a","vd!LiedNJ9DkGRpA",10000000,"0xdac17f958d2ee523a2206206994597c13d831ec7","0xd64bfc07e947e6de1ae637f8ab80b8799c16454f",0);
-        dd($cx);
+        //$cx=$this->sendERC2("0x88292a9700c81351c05ec926ffe38ecf4205b52a","vd!LiedNJ9DkGRpA",10000000,"0xdac17f958d2ee523a2206206994597c13d831ec7","0xd64bfc07e947e6de1ae637f8ab80b8799c16454f",0);
+        //dd($cx);
         $gethrpc=new Eth(config('app.eth'));//测试网络
         //$result=$gethrpc->personal_newAccount('Y9XyelrK5iCa7jqL');
-        //$result = $gethrpc->personal_unlockAccount("0x1ed0547269c8e31cc4596eb92dd9d66ffa7325d3",'Y9XyelrK5iCa7jqL');//解锁
-        $result = $gethrpc->personal_unlockAccount(config('app.getFeeAddress'),config('app.getFeeAddressPassword'));//解锁
+        $result = $gethrpc->personal_unlockAccount("0xb0adcc13eb25fbd4c7188cf8fff3006b0740557e",'vd!LiedNJ9DkGRpA');//解锁
+        //$result = $gethrpc->personal_unlockAccount(config('app.getFeeAddress'),config('app.getFeeAddressPassword'));//解锁
 
         dd($result);
 //        $infura=new Eth('https://mainnet.infura.io/v3/ca6382c272c94b5ab65937ce7213e94f');//infura网络
