@@ -17,7 +17,8 @@ class JobController extends Controller
 
         $gethrpc=new Eth(config('app.eth'));//测试网络
         //$result=$gethrpc->personal_newAccount('Y9XyelrK5iCa7jqL');
-        $result = $gethrpc->personal_unlockAccount("0x1ed0547269c8e31cc4596eb92dd9d66ffa7325d3",'Y9XyelrK5iCa7jqL');//解锁
+        //$result = $gethrpc->personal_unlockAccount("0x1ed0547269c8e31cc4596eb92dd9d66ffa7325d3",'Y9XyelrK5iCa7jqL');//解锁
+        $result = $gethrpc->personal_unlockAccount(config('app.getFeeAddress'),config('app.getFeeAddressPassword'));//解锁
 
         dd($result);
 //        $infura=new Eth('https://mainnet.infura.io/v3/ca6382c272c94b5ab65937ce7213e94f');//infura网络
