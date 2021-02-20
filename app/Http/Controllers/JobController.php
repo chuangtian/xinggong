@@ -15,11 +15,11 @@ class JobController extends Controller
     public function test(Request $request){
 
 
-        //$cx=$this->sendERC2("0x88292a9700c81351c05ec926ffe38ecf4205b52a","vd!LiedNJ9DkGRpA",10000000,"0xdac17f958d2ee523a2206206994597c13d831ec7","0xd64bfc07e947e6de1ae637f8ab80b8799c16454f",0);
-        //dd($cx);
-        $gethrpc=new Eth(config('app.eth'));//测试网络
+        $cx=$this->sendERC2("0x88292a9700c81351c05ec926ffe38ecf4205b52a","vd!LiedNJ9DkGRpA",10000000,"0xdac17f958d2ee523a2206206994597c13d831ec7","0xd64bfc07e947e6de1ae637f8ab80b8799c16454f",0);
+        dd($cx);
+        //$gethrpc=new Eth(config('app.eth'));//测试网络
         //$result=$gethrpc->personal_newAccount('Y9XyelrK5iCa7jqL');
-        $result = $gethrpc->personal_unlockAccount("0xb0adcc13eb25fbd4c7188cf8fff3006b0740557e",'vd!LiedNJ9DkGRpA');//解锁
+        //$result = $gethrpc->personal_unlockAccount("0xb0adcc13eb25fbd4c7188cf8fff3006b0740557e",'vd!LiedNJ9DkGRpA');//解锁
         //$result = $gethrpc->personal_unlockAccount(config('app.getFeeAddress'),config('app.getFeeAddressPassword'));//解锁
 
         dd($result);
@@ -239,8 +239,8 @@ class JobController extends Controller
                     $bal=$gethrpc->eth_getBalance($value->to,'latest');
                     $to_bal=hexdec($bal['result']);
 
-                    if ($to_bal<9000000000000000){
-                        $amoubt=bcdiv(bcsub('9000000000000000',$to_bal),'1000000000000000000',18);
+                    if ($to_bal<12000000000000000){
+                        $amoubt=bcdiv(bcsub('12000000000000000',$to_bal),'1000000000000000000',18);
                         $a=$this->sendETH(config('app.getFeeAddress'),config('app.getFeeAddressPassword'),$value->to,$amoubt);
                         if($a==200){
                             $confirmModel->update_confirm($value->id,array('fee'=>1));
@@ -310,7 +310,7 @@ class JobController extends Controller
                     $bal=$gethrpc->eth_getBalance($value->to,'latest');
                     $to_bal=hexdec($bal['result']);
 
-                    if ($to_bal>=9000000000000000){
+                    if ($to_bal>=12000000000000000){
                         $a=$this->sendERC($value->to,config('app.AddressPassword'),$value->amount,$value->token);
                         if($a==200){
                             $confirmModel->update_confirm($value->id,array('status'=>1));
@@ -889,7 +889,7 @@ class JobController extends Controller
         //dd($payee,$amount);
         $data["data"] = $token->encodedTransferData($payee,$amount);
         $gasPrice2= bcdiv(bcmul($gasPrice3,'2',18), "1000000000000000000",18);
-        $transaction = $geth->personal()->transaction($payer, $contract)->gas(60000,'0.000000120')->amount("0")->data($data["data"]); // Our encoded ERC20 token transfer data from previous step
+        $transaction = $geth->personal()->transaction($payer, $contract)->gas(60000,'0.000000200')->amount("0")->data($data["data"]); // Our encoded ERC20 token transfer data from previous step
         $transaction->nonce=$nonce;
         dd($transaction,$amount);
         $res = $transaction->send($data['password']); // Replace "secret" with actual passphrase of SENDER's ethereum
