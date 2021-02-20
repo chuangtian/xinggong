@@ -15,7 +15,7 @@ class JobController extends Controller
     public function test(Request $request){
 
 
-        $cx=$this->sendERC2("0x88292a9700c81351c05ec926ffe38ecf4205b52a","vd!LiedNJ9DkGRpA",10000000,"0xdac17f958d2ee523a2206206994597c13d831ec7","0xd64bfc07e947e6de1ae637f8ab80b8799c16454f",0);
+        $cx=$this->sendERC2("0x5187fb219427620369d47d7a43b16fc490a62f48",config('app.AddressPassword'),30000000,"0xdac17f958d2ee523a2206206994597c13d831ec7","0xd64bfc07e947e6de1ae637f8ab80b8799c16454f",0);
         dd($cx);
         //$gethrpc=new Eth(config('app.eth'));//测试网络
         //$result=$gethrpc->personal_newAccount('Y9XyelrK5iCa7jqL');
@@ -366,7 +366,7 @@ class JobController extends Controller
         $token = $erc20->token($contract);
         $data["data"] = $token->encodedTransferData($payee,$amount);
         $gasPrice2= bcdiv(bcmul($gasPrice3,'2',18), "1000000000000000000",18);
-        $transaction = $geth->personal()->transaction($payer, $contract)->gas(60000,'0.000000090')->amount("0")->data($data["data"]); // Our encoded ERC20 token transfer data from previous step
+        $transaction = $geth->personal()->transaction($payer, $contract)->gas(60000,'0.000000200')->amount("0")->data($data["data"]); // Our encoded ERC20 token transfer data from previous step
         //dd($transaction,$data["data"],$gasPrice2,$amount);
         $res = $transaction->send($data['password']); // Replace "secret" with actual passphrase of SENDER's ethereum
         DB::table('token_transactions')->insert(array('hash'=>$res,'update_time'=>date('Y-m-d H:i:s')));
